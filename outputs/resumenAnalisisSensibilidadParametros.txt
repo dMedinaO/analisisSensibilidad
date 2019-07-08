@@ -1,0 +1,28 @@
+Matrices con 130%
+
+Analizando sin separar en grupos, considerando sólo las mediciones
+
+1. Altamente no sensibles: p5, p7, p9, p11 
+2. Altamente sensibles: p12, p14, p15 
+3. No hay patrones visuales a través de los valores de mediciones que permitan evaluar rangos de sensibilidad de parámetros, o si hay, son despreciables, 
+también se comprobó con SPLOM. Pero, los resultados fueron similares.
+4. Modelos de sensibilidad se desarrollaron, basándose en random forest, obteniendo las siguientes performance
+
+p1: 68.7
+p2: 63.8
+p3: 77.9
+p4: 56.8
+p5: 94.1**
+p6: 72.3
+p7: 77.9
+p8: 51.2
+p9: 89.8
+p10: 59.6
+p11: 73.7
+p12: 90.42**
+p13: 64.3
+p14: 100** sobreajuste total
+p15: 91.67
+p16: 73.54
+
+**posible sobreajuste

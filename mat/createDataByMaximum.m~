@@ -1,0 +1,35 @@
+%script que permite calcular la sensibilidad considerando el maximo valor
+%de la columna
+function createDataByMaximum(umbral, pathExport)
+    
+    matrixResponse = [];
+    for paciente=1:462  
+        try
+            nameMat = "VarParP_"+paciente+"_GP2.mat";
+            load(nameMat);                       
+            
+            for i=1:16
+                
+                max = M(i,1);%tomaremos como maximo el primer elemento...
+                for j=1:21
+                    %actualizamos el maximo
+                    if M(i,j)>=max
+                        max = M(i,j);
+                    end
+                end
+                
+                if max >=umbral
+                    matrixResponse(paciente,i) = 1;%sensible
+                else
+                    matrixResponse(paciente,i) = 0;%no sensible
+                end
+            end
+        catch
+            for i=1:16
+                matrixResponse(paciente,i) = -1;%no ajustado
+            end
+        end
+        
+    end
+    csvwrite(nameExport, matrixResponse);
+end
